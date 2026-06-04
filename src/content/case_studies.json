@@ -1,0 +1,22 @@
+[
+  {
+    "id": "cs-timber-asean",
+    "title": "How a timber importer avoided $340K in tariff exposure by re-routing through ASEAN",
+    "category": "Tariff Optimisation",
+    "readTime": "5 min",
+    "date": "2026-03-15",
+    "excerpt": "A European timber importer faced an unexpected 14% tariff surge on direct China-to-EU shipments under new CBR rules. Our audit identified a duty-free corridor via Vietnam, saving $340K annually.",
+    "hsCode": "440710",
+    "regions": ["EU", "ASEAN", "China"]
+  },
+  {
+    "id": "cs-autoparts-concentration",
+    "title": "Supply chain audit reveals 67% supplier concentration risk for EU auto parts distributor",
+    "category": "Resilience Audit",
+    "readTime": "7 min",
+    "date": "2026-02-20",
+    "excerpt": "A concentration analysis of an EU auto parts distributor's semiconductor sourcing showed 67% dependency on two Taiwanese foundries. We modelled a 90-day disruption scenario and mapped 11 alternative qualified suppliers.",
+    "hsCode": "854231",
+    "regions": ["EU", "Taiwan", "South Korea"]
+  }
+]

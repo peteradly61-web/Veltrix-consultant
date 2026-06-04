@@ -1,0 +1,22 @@
+[
+  {
+    "id": "mu-cbam-cement-steel",
+    "title": "EU Carbon Border Adjustment: Trade flow implications for cement and steel",
+    "category": "Regulatory Shift",
+    "readTime": "4 min",
+    "date": "2026-04-10",
+    "excerpt": "The CBAM mechanism creates an effective tariff equivalent of 18–24% for high-carbon imports by 2026. Weekly flow data shows early rerouting by Turkish and Indian producers.",
+    "hsCode": "7208",
+    "regions": ["EU", "Turkey", "India"]
+  },
+  {
+    "id": "mu-us-china-electronics",
+    "title": "U.S.–China Phase Two uncertainty: What the data shows about decoupling in electronics",
+    "category": "Geopolitical Risk",
+    "readTime": "6 min",
+    "date": "2026-04-05",
+    "excerpt": "ITC data shows a 31% decline in direct US electronics imports from China since Q1 2024, with a corresponding 28% surge through Vietnam and Malaysia — suggesting trans-shipment rather than genuine decoupling.",
+    "hsCode": "8542",
+    "regions": ["USA", "China", "Vietnam", "Malaysia"]
+  }
+]
