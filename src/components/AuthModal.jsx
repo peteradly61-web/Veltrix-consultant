@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { X, Mail, Lock, User, Github, Linkedin, ArrowRight, Loader2, Briefcase, MapPin, Building2, CheckCircle2, AlertCircle } from 'lucide-react';
 
 const INDUSTRIES = [
@@ -17,7 +17,7 @@ const INDUSTRIES = [
 
 import { useAuth } from '../lib/AuthContext';
 
-export default function AuthModal({ isOpen, onClose }) {
+export default function AuthModal({ onClose }) {
   const { login, signup, resetPassword } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
   const [isForgotPassword, setIsForgotPassword] = useState(false);
@@ -66,8 +66,6 @@ export default function AuthModal({ isOpen, onClose }) {
     }
   };
 
-  if (!isOpen) return null;
-
   const toggleMode = () => {
     setIsLogin(!isLogin);
     setIsForgotPassword(false);
@@ -82,22 +80,26 @@ export default function AuthModal({ isOpen, onClose }) {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       {/* Backdrop */}
-      <motion.div 
+      <motion.div
+        key="backdrop"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
         onClick={onClose}
         className="absolute inset-0 bg-[rgba(245,245,247,0.4)] backdrop-blur-xl"
       />
 
       {/* Modal */}
       <motion.div
+        key="modal"
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
         className="relative w-full max-w-lg bg-white rounded-[32px] shadow-2xl overflow-hidden border border-gray-100 flex flex-col max-h-[90vh]"
       >
-        <button 
+        <button
           onClick={onClose}
           className="absolute top-6 right-6 z-10 p-2 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] transition-colors text-[#1d1d1f]"
         >
@@ -110,10 +112,10 @@ export default function AuthModal({ isOpen, onClose }) {
               {isForgotPassword ? 'Reset password.' : isLogin ? 'Welcome back.' : 'Create account.'}
             </h2>
             <p className="text-[#86868b] text-[17px]">
-              {isForgotPassword 
-                ? 'Enter your email to receive a password reset link.' 
-                : isLogin 
-                ? 'Sign in to access your intelligence dashboard.' 
+              {isForgotPassword
+                ? 'Enter your email to receive a password reset link.'
+                : isLogin
+                ? 'Sign in to access your intelligence dashboard.'
                 : 'Start your journey with Veltrix Consultant.'}
             </p>
           </div>
@@ -136,7 +138,7 @@ export default function AuthModal({ isOpen, onClose }) {
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-gray-200"></div>
                 </div>
-                <div className="relative flex justify-center text-[12px] uppercase tracking-widest font-bold">
+                <div className="relative flex justify-center text-[12px] uppercase tracking-widest font-bold">        
                   <span className="bg-white px-4 text-[#86868b]">or use email</span>
                 </div>
               </div>
@@ -157,32 +159,33 @@ export default function AuthModal({ isOpen, onClose }) {
               <>
                 <div className="relative">
                   <User className="absolute left-5 top-1/2 -translate-y-1/2 text-[#86868b]" size={20} />
-                  <input 
+                  <input
                     name="name"
-                    type="text" 
+                    type="text"
                     placeholder="Full Name"
                     required
                     className="w-full bg-[#f5f5f7] border-none rounded-2xl p-5 pl-14 text-[16px] focus:ring-2 ring-[#0071e3] transition-all outline-none"
                   />
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="relative">
-                    <Building2 className="absolute left-5 top-1/2 -translate-y-1/2 text-[#86868b]" size={20} />
-                    <select 
+                    <Building2 className="absolute left-5 top-1/2 -translate-y-1/2 text-[#86868b]" size={20} />       
+                    <select
                       name="industry"
                       required
+                      defaultValue=""
                       className="w-full bg-[#f5f5f7] border-none rounded-2xl p-5 pl-14 text-[16px] focus:ring-2 ring-[#0071e3] transition-all outline-none appearance-none"
                     >
-                      <option value="" disabled selected>Select Industry</option>
+                      <option value="" disabled>Select Industry</option>
                       {INDUSTRIES.map(ind => <option key={ind} value={ind}>{ind}</option>)}
                     </select>
                   </div>
                   <div className="relative">
-                    <Briefcase className="absolute left-5 top-1/2 -translate-y-1/2 text-[#86868b]" size={20} />
-                    <input 
+                    <Briefcase className="absolute left-5 top-1/2 -translate-y-1/2 text-[#86868b]" size={20} />       
+                    <input
                       name="position"
-                      type="text" 
+                      type="text"
                       placeholder="Your Position"
                       required
                       className="w-full bg-[#f5f5f7] border-none rounded-2xl p-5 pl-14 text-[16px] focus:ring-2 ring-[#0071e3] transition-all outline-none"
@@ -192,9 +195,9 @@ export default function AuthModal({ isOpen, onClose }) {
 
                 <div className="relative">
                   <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 text-[#86868b]" size={20} />
-                  <input 
+                  <input
                     name="country"
-                    type="text" 
+                    type="text"
                     placeholder="Country"
                     required
                     className="w-full bg-[#f5f5f7] border-none rounded-2xl p-5 pl-14 text-[16px] focus:ring-2 ring-[#0071e3] transition-all outline-none"
@@ -205,21 +208,21 @@ export default function AuthModal({ isOpen, onClose }) {
 
             <div className="relative">
               <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-[#86868b]" size={20} />
-              <input 
+              <input
                 name="email"
-                type="email" 
+                type="email"
                 placeholder="Email Address"
                 required
                 className="w-full bg-[#f5f5f7] border-none rounded-2xl p-5 pl-14 text-[16px] focus:ring-2 ring-[#0071e3] transition-all outline-none"
               />
             </div>
-            
+
             {!isForgotPassword && (
               <div className="relative">
                 <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-[#86868b]" size={20} />
-                <input 
+                <input
                   name="password"
-                  type="password" 
+                  type="password"
                   placeholder="Password"
                   required
                   className="w-full bg-[#f5f5f7] border-none rounded-2xl p-5 pl-14 text-[16px] focus:ring-2 ring-[#0071e3] transition-all outline-none"
@@ -229,9 +232,9 @@ export default function AuthModal({ isOpen, onClose }) {
 
             {isLogin && !isForgotPassword && (
               <div className="flex justify-end">
-                <button 
+                <button
                   onClick={showForgotPassword}
-                  type="button" 
+                  type="button"
                   className="text-[14px] text-[#0066cc] hover:underline font-medium"
                 >
                   Forgot password?
@@ -239,7 +242,7 @@ export default function AuthModal({ isOpen, onClose }) {
               </div>
             )}
 
-            <button 
+            <button
               disabled={isLoading}
               className="w-full bg-[#1d1d1f] text-white py-5 rounded-2xl font-bold text-[17px] mt-4 flex items-center justify-center gap-2 hover:bg-[#424245] transition-all"
             >
@@ -256,7 +259,7 @@ export default function AuthModal({ isOpen, onClose }) {
 
           <p className="text-center mt-8 text-[15px] text-[#86868b]">
             {isForgotPassword ? (
-              <button 
+              <button
                 onClick={() => setIsForgotPassword(false)}
                 className="text-[#0066cc] hover:underline font-semibold"
               >
@@ -265,7 +268,7 @@ export default function AuthModal({ isOpen, onClose }) {
             ) : (
               <>
                 {isLogin ? "Don't have an account? " : "Already have an account? "}
-                <button 
+                <button
                   onClick={toggleMode}
                   className="text-[#0066cc] hover:underline font-semibold"
                 >
@@ -277,6 +280,5 @@ export default function AuthModal({ isOpen, onClose }) {
         </div>
       </motion.div>
     </div>
-
   );
 }
