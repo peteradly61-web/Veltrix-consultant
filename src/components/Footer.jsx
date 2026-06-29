@@ -50,7 +50,7 @@ export default function Footer() {
             Copyright © 2026 Veltrix Consultant. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="https://linkedin.com/in/veltrix-consultant-96b586406/?skipRedirect=true" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors"><Linkedin size={20} /></a>
+            <a href="https://www.linkedin.com/company/veltrix-consultancy/" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors"><Linkedin size={20} /></a>
             <a href="mailto:veltrixconsultant@gmail.com" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors"><Mail size={20} /></a>
           </div>
         </div>
