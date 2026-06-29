@@ -1,6 +1,6 @@
 'use client';
 
-import { Globe, Linkedin, Mail } from 'lucide-react';
+import { Globe, Linkedin, Mail, Facebook } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -50,6 +50,7 @@ export default function Footer() {
             Copyright © 2026 Veltrix Consultant. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
+            <a href="https://www.facebook.com/share/18qSttkLUD/?mibextid=wwXIfr" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors"><Facebook size={20} /></a>
             <a href="https://www.linkedin.com/company/veltrix-consultancy/" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors"><Linkedin size={20} /></a>
             <a href="mailto:veltrixconsultant@gmail.com" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors"><Mail size={20} /></a>
           </div>
